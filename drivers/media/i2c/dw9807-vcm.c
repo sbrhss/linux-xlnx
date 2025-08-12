@@ -238,9 +238,9 @@ static int dw9807_set_ctrl(struct v4l2_ctrl *ctrl)
 		dev_vcm->first = false;
 		dev_vcm->current_val = ctrl->val;
 		return dw9807_ramp(client, start, ctrl->val);
+	} else {
+		return -EINVAL;
 	}
-
-	return -EINVAL;
 }
 
 static const struct v4l2_ctrl_ops dw9807_vcm_ctrl_ops = {
